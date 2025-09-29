@@ -1,5 +1,5 @@
 function getComputerChoice() {
-	const randomNum = Math.random;
+	const randomNum = Math.random();
 	if (randomNum >= 0 && randomNum < 1 / 3) {
 		return "rock";
 	} else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
@@ -13,18 +13,14 @@ function getplayerChoice() {
 }
 function winLogic(playerChoice, computerChoice) {
 	if (playerChoice === computerChoice) return "tie";
+
 	if (
-		(playerChoice === "rock" && computerChoice === "paper") ||
-		(playerChoice === "paper" && computerChoice === "scissor") ||
-		(playerChoice === "scissor" && computerChoice === "rock")
+		(playerChoice === "rock" && computerChoice === "scissor") ||
+		(playerChoice === "paper" && computerChoice === "rock") ||
+		(playerChoice === "scissor" && computerChoice === "paper")
 	) {
 		return "player";
-	}
-	if (
-		(computerChoice === "rock" && playerChoice === "paper") ||
-		(computerChoice === "paper" && playerChoice === "scissor") ||
-		(computerChoice === "scissor" && playerChoice === "rock")
-	) {
+	} else {
 		return "computer";
 	}
 }
