@@ -7,7 +7,32 @@
 }
 body {
 	display: flex;
+	flex-direction: column;
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
+	gap: 4px;
+	background-color: aqua;
+}
+button {
+	padding: 12px;
+}
+.choices,
+.result,
+.overall {
+	background-color: #e9e9ed;
+	display: inline-block;
+	width: 220px;
+	border: 2px solid #bcbcc5;
+	border-radius: 10px;
+	padding: 10px;
+}
+.result {
+	text-align: center;
+}
+.overall-section {
+	display: flex;
+	width: 210px;
+	justify-content: center;
+	gap: 10px;
 }
