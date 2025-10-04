@@ -8,9 +8,9 @@ function getComputerChoice() {
 		return "scissor";
 	}
 }
-function getplayerChoice() {
-	return prompt("pick (rock) , (scissor) , (paper)").toLowerCase();
-}
+// function getplayerChoice() {
+// 	return prompt("pick (rock) , (scissor) , (paper)").toLowerCase();
+// }
 function winLogic(playerChoice, computerChoice) {
 	if (playerChoice === computerChoice) return "tie";
 
@@ -24,9 +24,8 @@ function winLogic(playerChoice, computerChoice) {
 		return "computer";
 	}
 }
-function playRound() {
+function playRound(playerChoice) {
 	let computerChoice = getComputerChoice();
-	let playerChoice = getplayerChoice();
 	console.log(
 		`Computer Choice: ${computerChoice}\nPlayer Choice: ${playerChoice}`
 	);
@@ -36,8 +35,7 @@ function playRound() {
 			`Tie\nComputer Choice: ${computerChoice} and Player Choice: ${playerChoice} are same lol`
 		);
 		tieCount++;
-	}
-	if (roundWinner === "player") {
+	} else if (roundWinner === "player") {
 		console.log(
 			`You win!\nPlayer Choice: ${playerChoice} beats Computer Choice: ${computerChoice}`
 		);
@@ -52,7 +50,10 @@ function playRound() {
 let tieCount = 0,
 	computerCount = 0,
 	playerCount = 0;
-for (let i = 0; i < 5; i++) {
-	playRound();
-	console.log(`Tie:${tieCount}\nWin:${playerCount}\nLosses:${computerCount}`);
-}
+const rpsButton = document.querySelectorAll(".rps-buttons > button");
+rpsButton.forEach((button) => {
+	button.addEventListener("click", () => {
+		playRound(button.classList[0]);
+		console.log(button);
+	});
+});
